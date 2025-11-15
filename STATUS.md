@@ -1,5 +1,6 @@
 # Project Status Dashboard
 
+---
 overall_progress: 22%
 tested: 0%
 remaining_tasks: 14
@@ -9,6 +10,7 @@ risks:
 next_steps:
   - finalize template
   - validate schema
+---
 
 ## Narrative Summary
 - Milestone `ms-01` is nearly complete; remaining action is approval of the YAML schema (task-102).
