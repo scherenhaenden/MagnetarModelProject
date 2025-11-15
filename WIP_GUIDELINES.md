@@ -1,6 +1,6 @@
 # Work-In-Progress Guidelines
 
-> Este documento describe las directrices de Trabajo en Progreso (WIP) para los proyectos de Magnetar. El objetivo de estas directrices es optimizar el flujo de trabajo limitando el trabajo concurrente. Define las reglas básicas, las excepciones y cómo se monitorea el cumplimiento.
+> This document outlines the Work-In-Progress (WIP) guidelines for Magnetar projects. The goal of these guidelines is to optimize workflow by limiting concurrent work. It defines the core rules, exceptions, and how compliance is monitored.
 
 Magnetar projects optimize flow by limiting concurrent work. These guidelines are mandatory for both humans and AI contributors.
 
