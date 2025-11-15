@@ -1,5 +1,7 @@
 # Requirements Specification
 
+> Este documento detalla los requisitos funcionales y no funcionales del Magnetar Canonical Project Model. Describe lo que el proyecto debe hacer, incluyendo el conjunto de documentación canónica, la plantilla de esquema del proyecto y una implementación de ejemplo. También define los criterios de aceptación para el proyecto.
+
 ## Functional Requirements
 1. **Canonical Documentation Set**
    - The repository must contain the full suite of governance and execution documents listed in the README table.

@@ -1,5 +1,7 @@
 # Blocker Register
 
+> Este archivo es el Registro de Bloqueos del proyecto. Se utiliza para documentar todos los impedimentos que obstaculizan el progreso del proyecto. Cada entrada debe incluir una descripción clara del bloqueo, su impacto, el propietario, los pasos de mitigación y la ruta de escalada.
+
 Document blockers immediately to maintain transparency and drive resolution. Each entry should map back to tasks in `PLAN.md` and be referenced in `BITACORA.md` updates.
 
 ## Template

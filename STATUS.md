@@ -1,5 +1,7 @@
 # Project Status Dashboard
 
+> Este documento es el Panel de Estado del Proyecto. Proporciona una instantánea del estado actual del proyecto, incluyendo el progreso general, el estado de las pruebas, las tareas restantes, las tareas bloqueadas y los riesgos. También incluye un resumen narrativo y las actualizaciones recientes.
+
 ---
 overall_progress: 22%
 tested: 0%

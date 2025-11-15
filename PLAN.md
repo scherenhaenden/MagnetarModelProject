@@ -1,5 +1,7 @@
 # Canonical Planning Model
 
+> Este documento es el Plan del Proyecto. Describe los hitos, el backlog de tareas, las estimaciones de esfuerzo y los estados de las tareas. Sirve como una hoja de ruta para el proyecto y debe mantenerse actualizado para reflejar el estado actual del trabajo.
+
 This plan illustrates how Magnetar projects capture milestones, tasks, estimates, and status. Replace placeholder content with project-specific details while keeping structure intact.
 
 ## Milestones Overview
