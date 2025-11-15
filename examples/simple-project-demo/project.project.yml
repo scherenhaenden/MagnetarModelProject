@@ -1,0 +1,163 @@
+metadata:
+  project_id: telemetry-widget-demo
+  name: Telemetry Widget Specification
+  description: >
+    Demonstration project showcasing adoption of the Magnetar canonical model
+    with partial progress and an active external dependency blocker.
+  owner: Mira Chen
+  stakeholders:
+    - Kai Lopez
+    - Arun Patel
+    - Jules Rivera
+  communication:
+    standup_channel: telemetry-widget-standup
+    escalation_contact: platform-director@magnetar.io
+    meeting_cadence: twice-weekly
+  repository:
+    url: https://git.example.com/magnetar/telemetry-widget
+    default_branch: master
+
+milestones:
+  - id: ms-01
+    name: Discovery Complete
+    target_date: 2024-02-05
+    status: done
+  - id: ms-02
+    name: Process Validation
+    target_date: 2024-02-19
+    status: in_progress
+  - id: ms-03
+    name: Launch Readiness
+    target_date: 2024-03-01
+    status: planned
+
+metrics:
+  overall_progress: 38
+  tested: 15
+  remaining_tasks: 7
+  blocked_tasks: 1
+
+risks:
+  - id: risk-api-contract
+    description: Telemetry API contract approval may delay architecture finalization.
+    impact: high
+    likelihood: medium
+    mitigation: Escalate to platform leadership and prepare fallback schema assumptions.
+    owner: Kai Lopez
+    next_review: 2024-02-06
+
+plan:
+  tasks:
+    - id: tw-101
+      milestone: ms-01
+      title: Draft project charter
+      owner: Mira Chen
+      effort: 3
+      weight: 12
+      state: done
+      completed_on: 2024-01-29
+    - id: tw-102
+      milestone: ms-01
+      title: Capture stakeholder interviews
+      owner: Arun Patel
+      effort: 5
+      weight: 18
+      state: done
+      completed_on: 2024-01-29
+    - id: tw-103
+      milestone: ms-01
+      title: Produce initial architecture outline
+      owner: Kai Lopez
+      effort: 4
+      weight: 14
+      state: in_review
+      related_blockers:
+        - bw-001
+    - id: tw-201
+      milestone: ms-02
+      title: Simulate blocker resolution workflow
+      owner: Jules Rivera
+      effort: 3
+      weight: 11
+      state: in_progress
+      scheduled_for: 2024-02-12
+    - id: tw-202
+      milestone: ms-02
+      title: Document WIP enforcement script
+      owner: Mira Chen
+      effort: 2
+      weight: 8
+      state: ready
+    - id: tw-203
+      milestone: ms-02
+      title: Update team onboarding kit
+      owner: Comms Team
+      effort: 2
+      weight: 7
+      state: planned
+    - id: tw-301
+      milestone: ms-03
+      title: Finalize adoption checklist
+      owner: Arun Patel
+      effort: 3
+      weight: 11
+      state: planned
+    - id: tw-302
+      milestone: ms-03
+      title: Announce template availability
+      owner: Comms Team
+      effort: 2
+      weight: 7
+      state: planned
+    - id: tw-303
+      milestone: ms-03
+      title: Validate documentation automation
+      owner: Kai Lopez
+      effort: 4
+      weight: 12
+      state: ready
+
+blockers:
+  - id: bw-001
+    title: Telemetry API contract pending approval
+    status: open
+    impact: high
+    owner: Kai Lopez
+    discovered: 2024-01-31
+    next_review: 2024-02-06
+    notes: Waiting for signed contract from external platform team.
+
+wip:
+  max_active_tasks: 2
+  current_assignments:
+    Mira Chen:
+      active_tasks:
+        - tw-103
+        - tw-202
+    Kai Lopez:
+      active_tasks:
+        - tw-103
+    Jules Rivera:
+      active_tasks:
+        - tw-201
+    Arun Patel:
+      active_tasks: []
+    Comms Team:
+      active_tasks: []
+
+testing:
+  last_run:
+    date: 2024-02-01
+    command: ./scripts/validate-docs.sh
+    outcome: passed_with_warnings
+    coverage: 15
+  commitments:
+    - documentation-validation
+    - blocker-drill
+    - integration-contract
+
+reporting:
+  status_update_cadence: twice-weekly
+  retro_cadence: end_of_milestone
+  dashboards:
+    - https://dash.example.com/magnetar/telemetry-widget
