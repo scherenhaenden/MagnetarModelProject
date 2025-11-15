@@ -1,5 +1,7 @@
 # Canonical Planning Model
 
+> This document is the Project Plan. It outlines milestones, the task backlog, effort estimates, and task statuses. It serves as a roadmap for the project and must be kept up-to-date to reflect the current state of work.
+
 This plan illustrates how Magnetar projects capture milestones, tasks, estimates, and status. Replace placeholder content with project-specific details while keeping structure intact.
 
 ## Milestones Overview

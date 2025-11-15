@@ -1,5 +1,7 @@
 # Magnetar Canonical Project Model
 
+> This is the main README file for the Magnetar Canonical Project Model. It provides an overview of the repository's purpose, contents, and usage. It serves as the starting point for anyone interacting with the project, explaining how to clone the model, replicate the documentation set, and follow the governance rules.
+
 The Magnetar Canonical Project Model is the definitive reference implementation for every Magnetar initiative. It exists to remove ambiguity, align humans and AI collaborators, and guarantee that each future repository starts from the same shared understanding of scope, process, and documentation. This project is not an application—its value lies in the structure and guidance it provides.
 
 ## Purpose
