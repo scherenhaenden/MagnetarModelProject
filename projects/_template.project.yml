@@ -1,0 +1,142 @@
+# Magnetar Project Template
+# Copy this file and replace values for your project. Comments explain required structure.
+
+metadata:
+  project_id: example-project-001        # Unique identifier used across documentation and tooling
+  name: Example Magnetar Initiative      # Human-readable project name
+  description: >                         # High-level summary of scope and purpose
+    Canonical example demonstrating how Magnetar projects declare metadata and structure.
+  owner: Jules Rivera                    # Primary maintainer or accountable lead
+  stakeholders:                          # List of stakeholders to notify about major changes
+    - Mira Chen                          # Architect
+    - Kai Lopez                          # Process steward
+    - Arun Patel                         # Delivery manager
+  communication:                         # Canonical communication paths
+    standup_channel: magnetar-standup    # Daily updates channel (Slack/Teams/etc.)
+    escalation_contact: governance@magnetar.io  # Email or contact for blocker escalation
+    meeting_cadence: weekly              # Frequency of sync meetings
+  repository:
+    url: https://git.example.com/magnetar/example   # Source control URL
+    default_branch: master               # Default branch aligning with BRANCHING_MODEL rules
+
+milestones:                              # Ordered list of major checkpoints
+  - id: ms-01
+    name: Project Initiation
+    target_date: 2024-01-12
+    description: Establish canonical artifacts and governance agreements.
+    completion_criteria:
+      - All required documentation drafted
+      - Kickoff meeting completed
+  - id: ms-02
+    name: Process Validation
+    target_date: 2024-01-26
+    description: Validate workflows, blocker handling, and WIP discipline.
+    completion_criteria:
+      - Dry run of blocker simulation
+      - Feedback from stakeholders incorporated
+
+metrics:                                 # Quantitative indicators tracked in STATUS.md
+  overall_progress: 22                   # Percentage (0-100) summarizing work completion
+  tested: 0                              # Percentage of functionality covered by tests
+  remaining_tasks: 14                    # Count of open tasks
+  blocked_tasks: 2                       # Count of tasks currently blocked
+
+risks:                                   # Known risks referenced in STATUS.md
+  - id: risk-architecture-clarity
+    description: Architecture documentation may be misinterpreted by new teams.
+    impact: medium
+    likelihood: medium
+    mitigation: Host architecture walkthrough session with adopters.
+    owner: Mira Chen
+    next_review: 2024-01-19
+
+roles:                                   # Mapping of responsibilities
+  product_lead: Jules Rivera
+  tech_lead: Mira Chen
+  delivery_manager: Arun Patel
+  qa_lead: Kai Lopez
+
+wip_policy:                              # Direct reference to WIP guidelines
+  max_in_progress_per_contributor: 2
+  exception_process: "Document request in BITACORA and secure approval from delivery manager."
+
+plan:                                    # Mirrors PLAN.md but machine-readable
+  tasks:
+    - id: task-101
+      milestone: ms-01
+      title: Draft canonical documentation set
+      owner: Jules Rivera
+      effort: 5
+      weight: 20
+      state: done
+      links:
+        - https://git.example.com/magnetar/example/pulls/4
+    - id: task-102
+      milestone: ms-01
+      title: Define YAML project schema
+      owner: Kai Lopez
+      effort: 3
+      weight: 15
+      state: in_review
+      notes: Awaiting approval from governance board
+    - id: task-201
+      milestone: ms-02
+      title: Simulate blocker lifecycle
+      owner: Arun Patel
+      effort: 3
+      weight: 10
+      state: in_progress
+      related_blockers:
+        - blocker_002
+    - id: task-301
+      milestone: ms-03
+      title: Finalize example project narrative
+      owner: Mira Chen
+      effort: 3
+      weight: 8
+      state: in_progress
+
+blockers:                                # Synchronize with BLOCKERS.md
+  - id: blocker_002
+    title: Escalation path pending approval
+    status: open
+    impact: medium
+    owner: Arun Patel
+    discovered: 2024-01-10
+    description: Awaiting confirmation from governance board on escalation contacts.
+    next_review: 2024-01-12
+    mitigation_steps:
+      - Draft interim escalation flow
+      - Schedule governance sync
+
+testing_commitments:                     # Derived from TESTING.md
+  required:
+    - type: documentation
+      description: Validate presence and structure of canonical files.
+    - type: integration
+      description: Ensure YAML schema passes parsing scripts.
+  current_status:
+    last_run:
+      date: null
+      outcome: not_run
+      notes: No automated checks executed yet.
+    coverage:
+      overall: 0
+      notes: Coverage to be reported once validation scripts exist.
+
+reporting:                               # Define cadence for status updates
+  status_update_cadence: daily
+  retro_cadence: end_of_milestone
+  dashboard_links:
+    - https://dash.example.com/magnetar/model-status
+
+appendix:
+  glossary:
+    canonical_model: >
+      The authoritative set of files, rules, and examples that define how Magnetar projects operate.
+    blocker: >
+      Any impediment preventing progress on a task that must be logged and escalated per policy.
+  references:
+    - README.md
+    - PLAN.md
+    - BLOCKERS.md
