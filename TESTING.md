@@ -1,5 +1,7 @@
 # Testing Standards
 
+> Este documento define los Estándares de Pruebas para los proyectos de Magnetar. Aunque el repositorio se centra en la documentación, describe los tipos de pruebas (unitarias, de integración, de documentación, de aceptación), las expectativas de cobertura, los informes y cómo declarar las áreas no probadas.
+
 Although this repository is documentation-focused, Magnetar projects must define and execute rigorous testing strategies. Tailor the following expectations to your project while preserving their intent.
 
 ## Test Types

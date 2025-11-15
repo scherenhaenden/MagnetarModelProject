@@ -1,5 +1,7 @@
 # Contributing Guide
 
+> Esta es una guía para contribuir al Magnetar Canonical Project Model. Detalla el flujo de trabajo que los contribuidores deben seguir, incluyendo la necesidad de revisar los documentos de gobernanza, asegurar que las tareas existan en el plan del proyecto y seguir el proceso de Pull Request.
+
 Thank you for helping maintain the Magnetar Canonical Project Model. Consistency is critical—follow these steps for any contribution.
 
 ## Before You Start

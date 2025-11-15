@@ -1,5 +1,7 @@
 # Magnetar Canonical Ruleset
 
+> Este documento es el conjunto de reglas canónicas para los proyectos de Magnetar. Codifica el estándar que cada proyecto debe seguir, incluyendo convenciones de nomenclatura, archivos requeridos, convenciones de ramificación, estados de tareas permitidos, restricciones de trabajo en progreso (WIP), ciclo de vida de los bloqueos y disciplina de documentación.
+
 These rules codify the Magnetar standard. Every project must comply unless a formal variance is documented in `BITACORA.md` and approved by the canonical maintainers.
 
 ## Naming Conventions

@@ -1,5 +1,7 @@
 # Bitácora (Project Log)
 
+> Este archivo es la Bitácora del proyecto. Contiene un registro cronológico de todas las decisiones, cambios y eventos significativos que ocurren durante el ciclo de vida del proyecto. Cada entrada debe incluir la fecha, hora, autor y una descripción clara del evento.
+
 | Date       | Time  | Author | Entry |
 |------------|-------|--------|-------|
 | 2024-01-08 | 09:10 | Jules  | Initialized canonical repository structure and documented required files list. |
