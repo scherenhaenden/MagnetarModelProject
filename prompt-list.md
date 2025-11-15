@@ -40,7 +40,7 @@ Use the following prompts to generate the file structure and base content for a 
     *   Copy the repository structure.
     *   Replace placeholder content with project-specific details.
     *   Instantiate and validate a project YAML file.
-    *   Establish initial milestones and log the initial state in `PLAN.md`, `STATUS.md`, and `BITACora.md`.
+    *   Establish initial milestones and log the initial state in `PLAN.md`, `STATUS.md`, and `BITACORA.md`.
 10. **Validating Canon Compliance:** A checklist to confirm that a project follows the Magnetar canon, ensuring that:
     *   All required files exist.
     *   The project YAML matches the schema.
