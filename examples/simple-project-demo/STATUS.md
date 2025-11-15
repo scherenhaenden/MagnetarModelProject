@@ -1,5 +1,6 @@
 # Status – Telemetry Widget
 
+---
 overall_progress: 38%
 tested: 15%
 remaining_tasks: 7
@@ -11,6 +12,7 @@ next_steps:
   - Secure API contract sign-off
   - Run blocker drill and capture learnings
   - Finalize automation validation script
+---
 
 ## Highlights
 - Discovery milestone complete with charter and interviews signed off.
