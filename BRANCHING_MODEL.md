@@ -1,6 +1,6 @@
 # Branching Model
 
-> Este documento define el Modelo de Ramificación para los proyectos de Magnetar. Describe las ramas principales (master, develop), las ramas de trabajo (feature, fix, chore, hotfix, experiment) y las expectativas para los Pull Requests. El objetivo es garantizar una estrategia de ramificación consistente y predecible en todos los proyectos.
+> This document defines the Branching Model for Magnetar projects. It describes the core branches (master, develop), working branches (feature, fix, chore, hotfix, experiment), and expectations for Pull Requests. The goal is to ensure a consistent and predictable branching strategy across all projects.
 
 The Magnetar canonical branching strategy balances stability with rapid iteration. All repositories must adhere to these rules unless an exception is documented in `BITACORA.md` and approved by maintainers.
 
