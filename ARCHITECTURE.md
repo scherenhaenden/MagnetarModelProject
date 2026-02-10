@@ -1,5 +1,7 @@
 # Architecture Blueprint
 
+> This document describes the architecture of the Magnetar Canonical Project Model, covering governance, planning, and execution workflows. It defines the standard components, the recommended repository layout, and how the architecture adapts to small and large projects.
+
 The Magnetar Canonical Project Model defines architecture as the structure of governance, planning artifacts, and execution workflows that any project must adopt. Although the repository contains no runnable code, its architectural guidance scales from lightweight initiatives to complex multi-team programs.
 
 ## Conceptual Diagram

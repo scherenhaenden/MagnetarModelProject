@@ -1,5 +1,7 @@
 # Branching Model
 
+> This document defines the Branching Model for Magnetar projects. It describes the core branches (master, develop), working branches (feature, fix, chore, hotfix, experiment), and expectations for Pull Requests. The goal is to ensure a consistent and predictable branching strategy across all projects.
+
 The Magnetar canonical branching strategy balances stability with rapid iteration. All repositories must adhere to these rules unless an exception is documented in `BITACORA.md` and approved by maintainers.
 
 ## Core Branches

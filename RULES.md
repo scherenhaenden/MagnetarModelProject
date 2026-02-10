@@ -1,5 +1,7 @@
 # Magnetar Canonical Ruleset
 
+> This document is the canonical ruleset for Magnetar projects. It codifies the standard that every project must follow, including naming conventions, required files, branching conventions, allowed task states, work-in-progress (WIP) constraints, the blocker lifecycle, and documentation discipline.
+
 These rules codify the Magnetar standard. Every project must comply unless a formal variance is documented in `BITACORA.md` and approved by the canonical maintainers.
 
 ## Naming Conventions

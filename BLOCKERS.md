@@ -1,5 +1,7 @@
 # Blocker Register
 
+> This file is the project's Blocker Register. It is used to document all impediments that hinder project progress. Each entry must include a clear description of the blocker, its impact, the owner, mitigation steps, and the escalation path.
+
 Document blockers immediately to maintain transparency and drive resolution. Each entry should map back to tasks in `PLAN.md` and be referenced in `BITACORA.md` updates.
 
 ## Template

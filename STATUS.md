@@ -1,5 +1,7 @@
 # Project Status Dashboard
 
+> This document is the Project Status Dashboard. It provides a snapshot of the project's current state, including overall progress, testing status, remaining tasks, blocked tasks, and risks. It also includes a narrative summary and recent updates.
+
 ---
 overall_progress: 22%
 tested: 0%

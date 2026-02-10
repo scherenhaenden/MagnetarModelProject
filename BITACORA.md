@@ -1,5 +1,7 @@
 # Bitácora (Project Log)
 
+> This file is the project's Bitácora (Logbook). It contains a chronological record of all significant decisions, changes, and events that occur during the project's lifecycle. Every entry must include the date, time, author, and a clear description of the event.
+
 | Date       | Time  | Author | Entry |
 |------------|-------|--------|-------|
 | 2024-01-08 | 09:10 | Jules  | Initialized canonical repository structure and documented required files list. |
