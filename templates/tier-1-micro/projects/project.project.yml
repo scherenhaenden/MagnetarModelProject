@@ -1,0 +1,19 @@
+metadata:
+  project_id: micro-tool-001
+  name: Micro Tool Initiative
+  tier: micro
+  owner: Developer Name
+  model_tier_default: fast
+
+milestones:
+  - id: ms-01
+    name: Initial Release
+    target_date: YYYY-MM-DD
+    completion_criteria:
+      - Functional script validated
+
+metrics:
+  overall_progress: 0
+  tested: 0
+  remaining_tasks: 2
+  blocked_tasks: 0

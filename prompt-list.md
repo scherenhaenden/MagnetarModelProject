@@ -264,9 +264,47 @@ Use the following prompts to generate the file structure and base content for a 
 
 The file should include sections for:
 
-*   **`metadata`:** Project name, description, start date.
+*   **`metadata`:** Project name, description, declared tier (`tier: micro | standard | extended`), default AI model tier (`fast | balanced | reasoning`), owner.
 *   **`stakeholders`:** A list of key stakeholders and their roles.
-*   **`milestones`:** A list of milestones with their IDs, names, and target dates.
-*   **`tasks`:** A list of tasks with their IDs, titles, owners, and initial states.
-*   **`risks`:** A registry of potential risks.
-*   **`reporting`:** Hooks or configurations for automated reports."
+*   **`milestones`:** A list of milestones with their IDs, names, completion criteria, and target dates.
+*   **`metrics`:** Quantitative indicators (`overall_progress`, `tested`, `remaining_tasks`, `blocked_tasks`).
+*   **`risks`:** A registry of potential risks with impact and mitigations.
+*   **`communication`:** Standup channel, escalation contact, meeting cadence.
+
+---
+
+### 12. `AGENTS.md`
+
+**Prompt:**
+
+"Create an `AGENTS.md` file that acts as the primary AI Agent Router and operational navigation protocol for AI coding agents (Claude, Gemini, Cursor, Codex).
+
+The file must include:
+1.  **Core Philosophy:** Explain that agents are transient execution workers, while version-controlled Markdown documents represent the durable state machine and persistent nervous system.
+2.  **Context Routing Table:** A matrix showing which markdown files an agent must READ and which it must UPDATE for each development activity (orientation, task selection, feature design, coding, blockers, testing, review, completion).
+3.  **Project Sizing Tiers:** Overview of Tier 1 (Micro), Tier 2 (Standard), and Tier 3 (Extended) documentation footprints.
+4.  **Invariant Rules:** Clear rules regarding WIP limits (max 2 active tasks), mandatory task IDs before coding, valid task states, and required BITACORA logging."
+
+---
+
+### 13. `MODEL_POLICY.md`
+
+**Prompt:**
+
+"Create a `MODEL_POLICY.md` file establishing an AI model selection policy for project sizes and task types.
+
+The file must cover:
+1.  **Model Tiers:** Fast/Compact (e.g. Gemini Flash, Claude Haiku), Balanced/Production (e.g. Claude Sonnet, Gemini Pro, GPT-4o), and Deep Reasoning (e.g. o1/o3-mini, Opus, Thinking models).
+2.  **Project Tier Mapping:** Recommending default model tiers for Micro, Standard, and Extended projects.
+3.  **Task Risk Matrix:** Mapping specific activities (operational tracking, feature coding, architectural ADR design, root-cause debugging, security audits) to appropriate cognitive tiers.
+4.  **Multi-Agent Team Roles:** Guidelines for coordinator, worker, and verifier roles."
+
+---
+
+### 14. `DECISIONS.md` & `GLOSSARY.md`
+
+**Prompt:**
+
+"Create architectural governance files for Tier 3 / Extended initiatives:
+*   **`DECISIONS.md`:** Architectural Decision Records (ADRs) template and logbook tracking context, considered options, decision outcome, and consequences.
+*   **`GLOSSARY.md`:** Standard lexicon defining core terms (Canon, Bitácora, Blocker, WIP, Tiers 1-3) and identifier formats."

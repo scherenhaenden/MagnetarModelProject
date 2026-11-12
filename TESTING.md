@@ -1,37 +1,46 @@
 # Testing Standards
 
-> This document defines the Testing Standards for Magnetar projects. Although the repository is documentation-centric, it outlines the types of tests (unit, integration, documentation, acceptance), coverage expectations, reporting, and how to declare untested areas.
+> This document defines the Testing Standards for Magnetar projects. It outlines the types of tests (unit, integration, documentation, acceptance), coverage expectations, reporting protocols, and how to declare untested areas.
 
-Although this repository is documentation-focused, Magnetar projects must define and execute rigorous testing strategies. Tailor the following expectations to your project while preserving their intent.
+Magnetar projects must define and execute rigorous testing strategies appropriate to their technology stack and project tier. Tailor the following expectations to your project while preserving their intent.
+
+---
 
 ## Test Types
-- **Unit Tests** – Validate the smallest meaningful components (functions, classes, scripts). Required for any executable logic.
-- **Integration Tests** – Verify interactions between modules, services, or workflows. For documentation-heavy projects, treat cross-file validation scripts as integration tests.
-- **Documentation Tests** – Ensure required files exist, contain expected sections, and follow schema rules. Implement automated linting or schema validation scripts where possible.
-- **Acceptance Tests** – Human or automated end-to-end checks confirming requirements and user flows.
+- **Unit Tests** – Validate the smallest meaningful components (functions, classes, scripts). Mandatory for any executable logic.
+- **Integration Tests** – Verify interactions between modules, services, databases, or third-party APIs.
+- **Documentation & Canon Tests** – Ensure required files exist, conform to the project's tier, and follow schema rules via `python scripts/magnetar_check.py`.
+- **Acceptance Tests** – End-to-end user flow validations confirming acceptance criteria in `REQUIREMENTS.md`.
+
+---
 
 ## Coverage Expectations
-- Minimum 80% coverage for executable codebases; for documentation projects, target 100% compliance with schema and linting rules.
-- Document any coverage gaps in this file with remediation plans and owners.
+- **Tier 1 (Micro)**: Basic smoke tests and documentation linting.
+- **Tier 2 (Standard)**: Minimum 80% coverage on core business logic; 100% compliance with canon linting.
+- **Tier 3 (Extended)**: Strict coverage thresholds (>= 85%), automated regression test suites, security scans, and mandatory CI gates.
 
-## Reporting
-- Summarize the latest test run results in this document, including date, command, outcome, and coverage percentage.
-- Update `STATUS.md` with the `tested` percentage and note untested areas.
-- Link failing tests to tasks in `PLAN.md` for remediation.
+---
+
+## Reporting Protocol
+- Summarize the latest test run in this document, recording date, execution command, outcome, and coverage percentage.
+- Update `STATUS.md` with the `tested` percentage and note any untested areas.
+- Link failing tests immediately to an active task in `PLAN.md` or a blocker in `BLOCKERS.md`.
+
+---
 
 ## Declaring Untested Areas
-- Use the format `untested: <scope> — <reason> — <owner> — <planned date>`.
-- Untested items must not linger longer than one milestone without approval.
+- Format: `untested: <scope> — <reason> — <owner> — <planned date>`.
+- Untested scopes must not linger longer than one milestone without formal stakeholder approval.
 
-## Example Entry
-```
+---
+
+## Test Run Log Template
+
+```yaml
 last_run:
-  date: 2024-01-12
-  command: npm run test && npm run lint
-  outcome: failed
-  coverage: 76%
-untested:
-  - workflow automation — awaiting staging environment — Kai — 2024-01-19
+  date: YYYY-MM-DD
+  command: pytest / npm test / scripts/magnetar_check.py
+  outcome: passed # passed | failed
+  coverage: 0%
+untested: []
 ```
-
-Adhering to these testing standards ensures the Magnetar canon remains reliable and enforceable across repositories.

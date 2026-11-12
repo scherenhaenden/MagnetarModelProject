@@ -1,92 +1,119 @@
 # Magnetar Canonical Project Model
 
-> This is the main README file for the Magnetar Canonical Project Model. It provides an overview of the repository's purpose, contents, and usage. It serves as the starting point for anyone interacting with the project, explaining how to clone the model, replicate the documentation set, and follow the governance rules.
+> The definitive reference implementation and governance blueprint for all Magnetar initiatives. It establishes a documentation-driven, spec-first standard that aligns human engineers and AI collaborators across projects of any scale.
 
-The Magnetar Canonical Project Model is the definitive reference implementation for every Magnetar initiative. It exists to remove ambiguity, align humans and AI collaborators, and guarantee that each future repository starts from the same shared understanding of scope, process, and documentation. This project is not an application—its value lies in the structure and guidance it provides.
+The Magnetar Canonical Project Model is the reference standard for every Magnetar repository. It eliminates ambiguity, aligns human engineers and AI collaborators, and guarantees that each repository starts from a shared understanding of scope, process, architecture, and governance.
+
+---
 
 ## Purpose
-- Establish a universal template covering documentation, planning, execution, and governance.
-- Describe the lifecycle expectations for Magnetar tasks, milestones, blockers, and deliverables.
-- Provide a complete YAML schema that downstream projects can adopt without interpretation gaps.
-- Offer an end-to-end, fully populated example that demonstrates the standard in action.
+- Establish a universal, tier-aware framework covering documentation, planning, execution, and governance.
+- Provide a persistent, Markdown-driven "nervous system" that grounds AI coding agents and prevents context drift.
+- Offer distinct project tiers (`micro`, `standard`, `extended`) so documentation overhead scales with project scope.
+- Provide machine-readable YAML schemas and zero-dependency validation tooling to verify compliance in CI.
+- Maintain complete, end-to-end reference implementations for seamless onboarding.
 
-## How to Use This Repository
-1. **Clone the canonical model** when creating a new Magnetar project.
-2. **Copy the `projects/_template.project.yml` file** into your repository and fill it out with project-specific values.
-3. **Replicate the documentation set** listed below, retaining file names and required sections.
-4. **Follow the WIP, branching, blocker, and testing rules** verbatim unless an exception is formally approved.
-5. **Keep the example project** nearby to resolve questions about expected tone, depth, or formatting.
+---
 
-## Project Contents
-This repository is intentionally documentation-first. Each file has a specific role within the model.
+## Project Sizing Tiers
 
-| File              | Purpose                                         |
-|-------------------|-------------------------------------------------|
-| PLAN.md           | Project tasks & milestones                      |
-| BITACORA.md       | Chronological logbook                           |
-| REQUIREMENTS.md   | Functional & non-functional specs               |
-| ARCHITECTURE.md   | System/module structure                         |
-| RULES.md          | Naming & workflow standards                     |
-| STATUS.md         | Health summary & progress stats                 |
-| TESTING.md        | Test coverage & reporting rules                 |
-| BLOCKERS.md       | Documented blockers & escalation paths          |
+Magnetar recognizes that one size does not fit all. Projects declare their tier in `projects/*.project.yml`:
 
-Additional governance references include `BRANCHING_MODEL.md` for Git flow rules and `WIP_GUIDELINES.md` for work-in-progress policies.
+| Tier | Profile Name | Target Scope | Required Core Files |
+| :--- | :--- | :--- | :--- |
+| **Tier 1** | **Micro** | Single-file scripts, spikes, quick prototypes (< 1-2 weeks) | `README.md`, `AGENTS.md`, `PLAN.md`, `STATUS.md`, `RULES.md` |
+| **Tier 2** | **Standard** | Standalone applications, services, libraries, tools (1-3 months) | Full standard set: Tier 1 + `REQUIREMENTS.md`, `ARCHITECTURE.md`, `BITACORA.md`, `TESTING.md`, `BLOCKERS.md`, `BRANCHING_MODEL.md`, `WIP_GUIDELINES.md`, `project.yml` |
+| **Tier 3** | **Extended** | Multi-service systems, monorepos, enterprise, high-compliance | Tier 2 + `DECISIONS.md` (ADRs), `GLOSSARY.md`, `SECURITY.md`, `CHANGELOG.md`, `MODEL_POLICY.md`, automated CI verification |
 
-## Progress Model Overview
-Magnetar projects track progress through milestones, tasks, and state transitions. Tasks advance through `planned → in_progress → in_review → done`, with blockers and risks captured transparently in `BLOCKERS.md` and `STATUS.md`. Every change in task state must be recorded in `BITACORA.md`, ensuring that the written history aligns with repository state and PR activity.
+---
 
-## YAML Project Schema
-The `projects/_template.project.yml` file specifies the canonical machine-readable schema. It includes metadata, stakeholders, milestones, task definitions, risk registers, test commitments, and reporting hooks. Inline comments explain each field, enabling AIs to parse the file reliably and humans to adapt it without breaking compatibility.
+## Canonical Document Map
+
+Each file in the Magnetar model serves a distinct, non-overlapping role:
+
+| File | Purpose | Tier |
+| :--- | :--- | :--- |
+| **`AGENTS.md`** | AI context router & operational navigation protocol | All tiers |
+| **`MODEL_POLICY.md`**| AI model tiering (fast vs. balanced vs. deep reasoning) | Tier 3 (rec. for all) |
+| **`README.md`** | Project introduction, quickstart, and structural index | All tiers |
+| **`RULES.md`** | Non-negotiable naming, task state, and workflow rules | All tiers |
+| **`PLAN.md`** | Roadmap, milestones, effort points, and task backlog | All tiers |
+| **`STATUS.md`** | Real-time health summary, metrics dashboard, and risks | All tiers |
+| **`REQUIREMENTS.md`**| Functional, non-functional, and acceptance specifications | Tier 2 & 3 |
+| **`ARCHITECTURE.md`**| Structural system topology, data flow, and module boundaries | Tier 2 & 3 |
+| **`BITACORA.md`** | Immutable, chronological logbook of decisions and transitions | Tier 2 & 3 |
+| **`BLOCKERS.md`** | Impediment register, owner assignments, and escalation paths | Tier 2 & 3 |
+| **`TESTING.md`** | Test coverage commitments, reporting, and untested scope | Tier 2 & 3 |
+| **`BRANCHING_MODEL.md`**| Git branch lifecycle conventions and PR requirements | Tier 2 & 3 |
+| **`WIP_GUIDELINES.md`**| Work-in-progress limit policies (max 2 active tasks) | Tier 2 & 3 |
+| **`DECISIONS.md`** | Architecture Decision Records (ADRs) | Tier 3 |
+| **`GLOSSARY.md`** | Domain terms, taxonomy, and identifier conventions | Tier 3 |
+
+Tool bridges (e.g. `CLAUDE.md`, `CODEX.md`, `GEMINI.md`, `.cursorrules`) point directly to `AGENTS.md` to maintain a single source of truth across diverse agent environments.
+
+When multiple AI models execute in parallel, mutual exclusion is preserved via ephemeral lock files in `locks/<task-id>.lock.yml` to prevent collisions on identical tasks or files.
+
+---
+
+## Progress Model & Task State Machine
+
+Magnetar projects track work through milestones and discrete task state transitions:
+
+```
+   [planned] ───> [ready] ───> [in_progress] ───> [in_review] ───> [done]
+                                   │     ▲
+                                   ▼     │
+                                 [blocked]
+```
+
+- **`planned`**: Scoped in backlog; prerequisites or prioritization pending.
+- **`ready`**: Acceptance criteria clear, effort estimated, dependencies met. Ready to pull.
+- **`in_progress`**: Actively being worked on (strictly maximum 2 concurrent tasks per contributor).
+- **`blocked`**: Progress halted; blocker details recorded in `BLOCKERS.md`.
+- **`in_review`**: Work completed; under peer review, testing, or CI verification.
+- **`done`**: Verified against acceptance criteria and recorded in `BITACORA.md`.
+
+---
 
 ## Guidance for AI Collaborators
-AI agents must:
-- Parse the YAML template to understand priorities, timelines, and ownership.
-- Use `PLAN.md` and `STATUS.md` to determine current focus and constraints.
-- Respect `RULES.md`, `WIP_GUIDELINES.md`, and `BRANCHING_MODEL.md` before proposing or executing work.
-- Update `BITACORA.md` whenever they complete, reprioritize, or discover work.
 
-## Architecture Diagram Overview
-```
-+---------------------------+
-| Governance & Standards    |
-| (RULES, WIP, BRANCHING)   |
-+------------+--------------+
-             |
-             v
-+---------------------------+
-| Planning Layer            |
-| (PLAN, REQUIREMENTS)      |
-+------------+--------------+
-             |
-             v
-+---------------------------+
-| Execution & Tracking      |
-| (BITACORA, STATUS,        |
-|  BLOCKERS, TESTING)       |
-+------------+--------------+
-             |
-             v
-+---------------------------+
-| Reference Implementations |
-| (projects/, examples/)    |
-+---------------------------+
-```
-The diagram expresses how standards inform planning, which then feeds execution artifacts and concrete examples. Every new project should reflect this flow.
+AI coding agents must adhere to the following protocol:
+1. **Consult `AGENTS.md` first**: Identify your task and read only the files mapped to your current activity.
+2. **Review `MODEL_POLICY.md`**: Ensure your model's reasoning tier matches the cognitive requirements of the task.
+3. **Never vibe-code**: Ensure an active task ID exists in `in_progress` before modifying codebase files.
+4. **Log every state change in `BITACORA.md`**: Document what was done, why, and what was tested.
+5. **Respect WIP constraints**: Never hold more than two concurrent `in_progress` tasks.
 
-## Applying This Template to a New Project
-1. Copy the repository structure into the new project root.
-2. Replace placeholder content with project-specific details while preserving headings and semantics.
-3. Instantiate a project YAML file from `projects/_template.project.yml` and validate it against automated checks.
-4. Establish your initial milestones and log the starting state in `PLAN.md`, `STATUS.md`, and `BITACORA.md`.
-5. Enforce WIP limits, testing expectations, and branching conventions from day one.
+---
 
 ## Validating Canon Compliance
-To verify that a project follows the Magnetar canon:
-- Confirm that all required files exist with the mandated sections and headings.
-- Ensure the project YAML matches the schema fields and naming conventions.
-- Review `BITACORA.md` for continuous, chronological updates aligned with Git history.
-- Check that active branches obey the rules described in `BRANCHING_MODEL.md` and WIP counts respect `WIP_GUIDELINES.md`.
-- Verify that testing commitments and blocker processes match the expectations in `TESTING.md` and `BLOCKERS.md`.
 
-By adhering to this canonical model, every Magnetar project speaks a shared language, enabling seamless collaboration across teams and intelligent agents.
+Magnetar includes an automated, zero-dependency validation script:
+
+```bash
+# Validate the current repository against its declared tier
+python scripts/magnetar_check.py
+
+# Validate explicitly for a specific tier
+python scripts/magnetar_check.py --tier standard
+```
+
+The validator verifies:
+- All required files for the declared tier exist.
+- Required markdown headers and sections are intact.
+- Task states in `PLAN.md` obey the canonical 6-state machine.
+- WIP limits (max 2 in-progress tasks per owner) are respected.
+- Project YAML schema compliance.
+
+---
+
+## Applying This Template to a New Project
+
+1. **Select your tier**: Choose Tier 1 (Micro), Tier 2 (Standard), or Tier 3 (Extended).
+2. **Copy the corresponding template folder**:
+   - `templates/tier-1-micro/`
+   - `templates/tier-2-standard/`
+   - `templates/tier-3-extended/`
+3. **Fill in project values**: Populate metadata, milestones, and requirements with project-specific details.
+4. **Run `python scripts/magnetar_check.py`**: Confirm that all canonical checks pass.
+5. **Begin execution**: Move initial tasks to `ready` and log the project kickoff in `BITACORA.md`.

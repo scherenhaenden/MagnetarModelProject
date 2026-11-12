@@ -1,16 +1,25 @@
-# Bitácora (Project Log)
+# Bitácora (Project Logbook)
 
-> This file is the project's Bitácora (Logbook). It contains a chronological record of all significant decisions, changes, and events that occur during the project's lifecycle. Every entry must include the date, time, author, and a clear description of the event.
+> This document is the project's Bitácora (Ship's Logbook). It is an append-only, chronological record of all significant decisions, state changes, blocker resolutions, and milestones throughout the project lifecycle. Every entry must include the date, time, author (or AI agent name), and a clear, descriptive summary.
 
-| Date       | Time  | Author | Entry |
-|------------|-------|--------|-------|
-| 2024-01-08 | 09:10 | Jules  | Initialized canonical repository structure and documented required files list. |
-| 2024-01-08 | 13:45 | Mira   | Completed first draft of ARCHITECTURE.md and synced with planning team. |
-| 2024-01-09 | 10:05 | Kai    | Added YAML schema outline; flagged need for inline comments for AI parsing. |
-| 2024-01-09 | 15:30 | Jules  | Updated PLAN.md with milestone weights; moved task-101 to in_review. |
-| 2024-01-10 | 11:20 | Arun   | Identified blocker on escalation path definition; logged as blocker_001. |
-| 2024-01-10 | 16:40 | Mira   | Resolved blocker_001 after governance sync; documented resolution in BLOCKERS.md. |
-| 2024-01-11 | 09:00 | Kai    | task-102 enters in_review; requested validation from compliance team. |
-| 2024-01-11 | 14:25 | Jules  | Finalized example project narrative updates and refreshed STATUS.md metrics. |
-| 2024-01-12 | 08:55 | Comms  | Coordinated announcement plan; created task-303 in PLAN.md. |
-| 2024-01-12 | 12:10 | Jules  | Merged canonical-model-init branch into master after review and updated testing commitments. |
+---
+
+## Logging Guidelines
+- **When to log:**
+  - Any task state transition (e.g. `ready → in_progress`, `in_review → done`).
+  - Any architectural or design decision.
+  - Raising or resolving a blocker.
+  - Any temporary WIP exception or rule variance.
+- **Format:**
+  `| YYYY-MM-DD | HH:MM | Author / Agent | Summary of event, task reference, or decision |`
+
+---
+
+## Chronological Log
+
+| Date | Time | Author | Entry |
+| :--- | :--- | :--- | :--- |
+| 2026-11-12 | 10:30 | Core Maintainers | Initialized Magnetar Canonical Model repository with tiered project architecture and agent router. |
+| 2026-11-12 | 10:35 | Antigravity AI | Implemented Tiered Canon (Micro/Standard/Extended), AGENTS.md router, MODEL_POLICY.md, DECISIONS.md, GLOSSARY.md, templates/, and scripts/magnetar_check.py validator. |
+| 2026-11-12 | 10:42 | Antigravity AI | Decoupled model from GitHub-specific assumptions; added multi-platform CI samples (ci/), PR/MR terminology, and environment-agnostic repository URLs. |
+| 2026-11-12 | 10:48 | Antigravity AI | Added CODEX.md and .cursorrules bridges; implemented parallel work isolation protocol via locks/<task-id>.lock.yml and updated magnetar_check.py. |

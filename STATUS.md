@@ -1,26 +1,24 @@
 # Project Status Dashboard
 
-> This document is the Project Status Dashboard. It provides a snapshot of the project's current state, including overall progress, testing status, remaining tasks, blocked tasks, and risks. It also includes a narrative summary and recent updates.
+> This document is the operational Project Status Dashboard. It provides a real-time snapshot of health metrics, sprint/milestone progress, remaining tasks, active blockers, and high-level narrative updates.
 
 ---
-overall_progress: 22%
+overall_progress: 0%
 tested: 0%
-remaining_tasks: 14
-blocked_tasks: 2
-risks:
-  - architecture unclear
+remaining_tasks: 0
+blocked_tasks: 0
+risks: []
 next_steps:
-  - finalize template
-  - validate schema
+  - configure project tier in project.yml
+  - populate initial backlog in PLAN.md
 ---
 
 ## Narrative Summary
-- Milestone `ms-01` is nearly complete; remaining action is approval of the YAML schema (task-102).
-- Two tasks (`task-201`, `task-301`) are active; WIP limits respected.
-- Blocker `blocker_002` still awaiting external escalation details—impact medium.
-- No automated tests executed yet; documentation validation pending.
+- Project initialized using the Magnetar Canonical Project Model.
+- Canonical documentation set established; awaiting milestone breakdown and task backlog population.
+
+## Active Risks
+*No active risks currently declared.*
 
 ## Recent Updates
-- Example project narrative updated to reflect current progress metrics.
-- STATUS.md refreshed to align with PLAN.md and BITACORA entries dated 2024-01-11.
-- Communications team drafting launch announcement ahead of `ms-03`.
+- **2026-11-12**: Canonical repository structure established with Tiered architecture, Agent Router (`AGENTS.md`), and Model Policy (`MODEL_POLICY.md`).
