@@ -1,52 +1,64 @@
 # Requirements Specification
 
-> This document details the functional and non-functional requirements for the Magnetar Canonical Project Model. It describes what the project must deliver, including the canonical documentation set, the project schema template, and an example implementation. It also defines the acceptance criteria for the project.
+> This document details the functional and non-functional requirements for the Magnetar Canonical Project Model. It defines the standards for the tiered documentation set, the YAML schema, agent interaction protocols, validation tooling, and example implementations.
+
+---
 
 ## Functional Requirements
-1. **Canonical Documentation Set**
-   - The repository must contain the full suite of governance and execution documents listed in the README table.
-   - Each document must include predefined sections, definitions, and examples that projects can adapt directly.
-2. **Project Schema Template**
-   - Provide a machine-readable YAML template with descriptive comments for every field.
-   - The schema must cover metadata, milestones, tasks, risks, testing, communication paths, and reporting cadence.
-3. **Example Implementation**
-   - Deliver a fully populated example project under `examples/simple-project-demo/` demonstrating correct usage of every artifact.
-   - The example must include realistic progress metrics, blockers, and test declarations.
-4. **Guidance for AI and Human Collaboration**
-   - Clearly describe how agents should interpret documents, enforce WIP limits, and update project history.
+
+### 1. Tiered Canonical Documentation Set
+- The repository must define three distinct project sizing tiers (`micro`, `standard`, and `extended`).
+- Each tier must have an explicitly specified set of mandatory and optional files.
+- Each document must include predefined sections, definitions, and operational guidelines that downstream projects can adopt directly.
+
+### 2. Machine-Readable Project Schema Template
+- Provide a machine-readable YAML template (`projects/_template.project.yml`) with descriptive comments for every field.
+- The schema must include project metadata, declared tier (`tier: micro | standard | extended`), milestones, task definitions, risk registers, and communication channels.
+
+### 3. Agent Routing & Context Optimization
+- Provide a dedicated AI Agent context router (`AGENTS.md`) mapping developer activities (planning, coding, blockers, testing, review) to specific read/write markdown documents.
+- Provide a model tiering framework (`MODEL_POLICY.md`) matching AI parameter tiers (Fast, Balanced, Deep Reasoning) to project scale and task complexity.
+- Provide single-line tool bridge files (`CLAUDE.md`, `GEMINI.md`, `.github/copilot-instructions.md`) pointing to `AGENTS.md`.
+
+### 4. Automated Compliance Tooling
+- Provide a zero-dependency CLI script (`scripts/magnetar_check.py`) capable of auditing any repository for canon compliance according to its declared tier.
+- Provide a GitHub Actions workflow (`.github/workflows/magnetar-lint.yml`) to enforce canon compliance on pull requests.
+
+### 5. Reference Implementations & Ready-to-Use Templates
+- Deliver ready-to-copy template folders for each project tier under `templates/`.
+- Maintain fully populated, realistic reference examples under `examples/` demonstrating correct usage in production.
+
+---
 
 ## Non-Functional Requirements
-- **Clarity** – Language must be explicit, avoiding ambiguous verbs or jargon; each rule references the document responsible for compliance.
-- **Consistency** – Headings, lists, and terminology remain uniform across files (e.g., task states, blocker statuses).
-- **Traceability** – Cross-references point to file names and sections so readers can navigate the canon quickly.
-- **AI-Readable** – Structured data uses predictable formatting (tables, YAML, bullet lists) to support automated parsing.
-- **Versionable** – Content should minimize duplication and highlight when updates must cascade to other files.
+- **Clarity & Directiveness** – Language must be unambiguous and directive; each rule links to its canonical document.
+- **Consistency** – Task states (`planned`, `ready`, `in_progress`, `in_review`, `blocked`, `done`), identifier conventions, and section titles must remain strictly identical across all files.
+- **Traceability** – Every code commit and PR must map to a `task-<id>` in `PLAN.md` and an entry in `BITACORA.md`.
+- **Zero-Dependency Tooling** – The validator script must run on vanilla Python 3 without requiring external package installations (`pip`).
+- **Token Efficiency** – AI agent routing must prevent context window saturation by discouraging blind multi-file ingestion.
+
+---
 
 ## Acceptance Criteria (Gherkin)
+
+```gherkin
+Feature: Magnetar Tiered Canonical Model Compliance
+
+  Scenario: Bootstrapping a new project by tier
+    Given a developer or agent initiates a new project
+    When they select a project tier (micro, standard, or extended)
+    Then they find a corresponding template directory under templates/
+    And the template contains exactly the required documentation set for that tier
+
+  Scenario: AI Agent context routing
+    Given an AI coding agent begins working in a Magnetar repository
+    When the agent consults AGENTS.md
+    Then it identifies the exact files to read and update for its specific task
+    And it does not need to ingest irrelevant documentation into its context window
+
+  Scenario: Automated validation via magnetar_check.py
+    Given a project repository with a declared tier
+    When python scripts/magnetar_check.py is executed
+    Then it validates file presence, section headers, task states, and WIP limits
+    And it returns exit code 0 when compliant or non-zero with actionable errors when failing
 ```
-Feature: Canonical Magnetar model availability
-  Scenario: Repository bootstrapping a new project
-    Given a consumer clones the canonical repository
-    When they inspect the root directory
-    Then they find all required governance and execution documents
-    And each document explains how to tailor it to a new initiative
-
-  Scenario: Generating a project YAML file
-    Given a template is available at projects/_template.project.yml
-    When a maintainer copies the template into a new project
-    Then every field contains a comment describing its purpose
-    And the resulting YAML validates against Magnetar parsing tools
-
-  Scenario: Consulting the example project
-    Given the examples/simple-project-demo directory
-    When a contributor reviews its files
-    Then they observe coherent progress metrics, tasks, blockers, and testing notes
-    And the narrative aligns with the canonical rules and requirements
-```
-
-## Completion Criteria
-- All files listed in Phase 2 exist with comprehensive, human-readable content.
-- The YAML template covers every field referenced in the rules and requirements with inline documentation.
-- The example project reflects partial progress, open blockers, and pending tests consistent with the canonical standards.
-- Documentation cross-references align (e.g., task states in `PLAN.md`, `STATUS.md`, and `RULES.md`).
-- `git status` is clean and all changes reside on the `canonical-model-init` branch ready for review.

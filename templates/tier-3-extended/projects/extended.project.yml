@@ -1,0 +1,60 @@
+# Magnetar Project Template
+# Copy this file to projects/<your-project-id>.project.yml and configure values.
+# Comments explain each field and structure expectations.
+
+metadata:
+  project_id: my-project-001             # Unique kebab-case identifier
+  name: My Magnetar Initiative           # Human-readable project name
+  description: >                         # High-level summary of scope and objective
+    A clear description of the initiative's purpose, problem statement, and goals.
+  tier: extended                         # Project sizing tier: micro | standard | extended
+  owner: Lead Name                       # Primary maintainer or accountable lead
+  model_tier_default: balanced           # Recommended AI model tier: fast | balanced | reasoning
+  stakeholders:                          # List of core collaborators and roles
+    - name: Architect Name
+      role: Systems Architect
+    - name: Lead Engineer
+      role: Engineering Lead
+  communication:                         # Project communication paths
+    standup_channel: "#project-standup"  # Daily sync channel
+    escalation_contact: lead@example.com # Contact or email for blocker escalation
+    meeting_cadence: weekly              # Sync cadence
+  repository:
+    url: https://github.com/org/repo     # Source control URL
+    default_branch: master               # Release branch (master or main)
+
+milestones:                              # Ordered list of project checkpoints
+  - id: ms-01
+    name: Project Initiation
+    target_date: YYYY-MM-DD
+    description: Establish canonical documentation, repository setup, and initial backlog.
+    completion_criteria:
+      - Canonical documentation initialized
+      - Stakeholders aligned and initial backlog estimated
+  - id: ms-02
+    name: Core Implementation
+    target_date: YYYY-MM-DD
+    description: Deliver primary functional capabilities.
+    completion_criteria:
+      - Core features implemented and unit tests passing
+  - id: ms-03
+    name: Release & Verification
+    target_date: YYYY-MM-DD
+    description: Complete end-to-end testing, security checks, and production deployment.
+    completion_criteria:
+      - Acceptance tests passing with >= 80% coverage
+      - Documentation verified via scripts/magnetar_check.py
+
+metrics:                                 # Quantitative pulse (synchronized with STATUS.md)
+  overall_progress: 0                    # Percentage (0-100)
+  tested: 0                              # Percentage of codebase covered by tests
+  remaining_tasks: 3                     # Count of open tasks in backlog
+  blocked_tasks: 0                       # Count of tasks in 'blocked' state
+
+risks:                                   # Known risks referenced in STATUS.md
+  - id: risk-initial-scoping
+    description: Scope expansion during initial sprint.
+    impact: medium                       # low | medium | high | critical
+    likelihood: medium                   # low | medium | high
+    mitigation: Enforce strict acceptance criteria in REQUIREMENTS.md and WIP limits.
+    owner: Lead Name

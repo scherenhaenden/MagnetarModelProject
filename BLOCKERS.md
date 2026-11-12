@@ -1,58 +1,35 @@
 # Blocker Register
 
-> This file is the project's Blocker Register. It is used to document all impediments that hinder project progress. Each entry must include a clear description of the blocker, its impact, the owner, mitigation steps, and the escalation path.
+> This document is the project's Blocker Register. It tracks all impediments halting progress on active tasks. Each entry documents the blocker description, impact, ownership, mitigation steps, escalation path, and eventual resolution.
 
-Document blockers immediately to maintain transparency and drive resolution. Each entry should map back to tasks in `PLAN.md` and be referenced in `BITACORA.md` updates.
+---
 
-## Template
+## Blocker Entry Template
+
+```markdown
+### blocker-<id>: [Brief Description]
+- **Impact:** [low | medium | high | critical]
+- **Status:** [open | in_mitigation | resolved]
+- **Affected Tasks:** [task-xxx]
+- **Owner:** [Name or Role]
+- **Discovered:** YYYY-MM-DD HH:MM
+- **Description:** [Explain the impediment and what is blocked.]
+- **Mitigation Steps:**
+  1. [Step 1]
+  2. [Step 2]
+- **Escalation Path:** [Channel or escalation contact from project YAML]
+- **Resolution:** [Documented fix once resolved]
+- **Resolved Date:** [YYYY-MM-DD when resolved]
 ```
-id: blocker_001
-title: "Dependency unavailable"
-impact: high
-status: open
-owner: <name>
-discovered: <YYYY-MM-DD>
-description: |
-  <Explain the issue, affected tasks, and immediate impact.>
-mitigation_steps:
-  - <Step 1>
-  - <Step 2>
-escalation_path: <Channel or person>
-next_review: <YYYY-MM-DD>
-notes: |
-  <Additional context or updates>
-```
+
+---
 
 ## Active Blockers
-- id: blocker_002
-  title: "Escalation path pending approval"
-  impact: medium
-  status: open
-  owner: Arun
-  discovered: 2024-01-10
-  description: |
-    Awaiting confirmation from governance board on official blocker escalation contacts.
-    Tasks task-201 and task-203 cannot proceed without this alignment.
-  mitigation_steps:
-    - Draft interim escalation flow and share for feedback.
-    - Schedule governance sync on 2024-01-11.
-  escalation_path: pending final decision
-  next_review: 2024-01-12
-  notes: |
-    Temporary workaround allows logging blockers but not formal escalation.
+
+*No active blockers currently recorded.*
+
+---
 
 ## Resolved Blockers
-- id: blocker_001
-  title: "Schema comment coverage incomplete"
-  impact: low
-  status: resolved
-  owner: Kai
-  discovered: 2024-01-09
-  resolved: 2024-01-10
-  description: |
-    Initial YAML template lacked explanatory comments for automation fields.
-  mitigation_steps:
-    - Added inline comments to template.
-    - Updated REQUIREMENTS.md acceptance criteria.
-  notes: |
-    Closure recorded in BITACORA on 2024-01-10 16:40.
+
+*No resolved blockers recorded.*

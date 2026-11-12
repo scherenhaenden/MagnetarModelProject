@@ -1,0 +1,19 @@
+metadata:
+  project_id: cache-pruner
+  name: Magnetar Cache Pruner
+  tier: micro
+  owner: Alex Rivera
+  model_tier_default: fast
+
+milestones:
+  - id: ms-01
+    name: MVP Release
+    target_date: 2026-11-20
+    completion_criteria:
+      - Working CLI tool with dry-run support
+
+metrics:
+  overall_progress: 50
+  tested: 80
+  remaining_tasks: 2
+  blocked_tasks: 0
