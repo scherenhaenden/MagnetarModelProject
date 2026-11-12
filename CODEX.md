@@ -1,0 +1,5 @@
+<!-- Bridge to Canonical Agent Instructions -->
+# OpenAI Codex / CLI Agent Instructions for Magnetar Projects
+
+See [AGENTS.md](AGENTS.md) for canonical agent instructions, project tier definitions, context routing tables, operational rules, and parallel work isolation protocols.
+See [MODEL_POLICY.md](MODEL_POLICY.md) for recommended AI model selection guidelines per project tier.

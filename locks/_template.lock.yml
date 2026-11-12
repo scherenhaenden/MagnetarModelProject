@@ -1,0 +1,15 @@
+# Magnetar Task Lock & Parallel Work Reservation Template
+# Copy this file to locks/<task-id>.lock.yml when moving a task to in_progress.
+# Delete or remove this file when the task transitions to in_review or done.
+
+task_id: task-001                      # Canonical task ID matching PLAN.md
+agent_id: codex-worker-01              # Unique identifier of model or contributor (e.g. claude-sonnet-1, gemini-pro, codex, human:alex)
+model: gpt-4o                          # Specific AI model or 'human'
+status: in_progress                    # Must be in_progress
+branch: feature/task-001-scope-name    # Working branch
+files_locked:                          # Subsystems/files this agent intends to alter (prevents overlapping collisions)
+  - src/auth/*
+  - config/auth.json
+started_at: "YYYY-MM-DDTHH:MM:SSZ"     # ISO 8601 UTC timestamp of work start
+heartbeat: "YYYY-MM-DDTHH:MM:SSZ"      # Recent active heartbeat timestamp
+summary: "Implementing token validation handler and unit tests"

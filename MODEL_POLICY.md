@@ -62,6 +62,7 @@ When orchestrating multiple agents within a Magnetar project:
 1. **Coordinator / Lead Agent**: Run on **Balanced** or **Deep Reasoning** to maintain macro-level planning, milestone tracking, and task state management in `PLAN.md`.
 2. **Worker Agents (Specialists)**: Run on **Balanced** (or **Fast** for small edits) pinned to specific task IDs.
 3. **Reviewer / Verifier Agent**: Run on an independent context on a **Balanced** model to execute `TESTING.md` protocols and approve transitions to `done`.
+4. **Collision Avoidance via Lockfiles**: Every worker agent running in parallel must create a reservation in `locks/<task-id>.lock.yml` declaring its model identity and locked file scopes. No parallel agent may touch files reserved by another active worker.
 
 ---
 

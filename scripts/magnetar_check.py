@@ -168,6 +168,36 @@ def check_plan_file(root: Path, errors: list, warnings: list):
             warnings.append(f"PLAN.md: WIP limit exceeded for owner '{owner}' ({count} tasks in_progress, maximum allowed is 2).")
 
 
+def check_locks(root: Path, errors: list, warnings: list):
+    """Validate active task locks in locks/ to prevent parallel collisions."""
+    locks_dir = root / "locks"
+    if not locks_dir.exists() or not locks_dir.is_dir():
+        return
+
+    seen_tasks = {}
+    for lock_file in locks_dir.glob("*.lock.yml"):
+        if lock_file.name.startswith("_template"):
+            continue
+        try:
+            content = lock_file.read_text(encoding="utf-8")
+            task_match = re.search(r"task_id:\s*([a-zA-Z0-9_\-]+)", content)
+            agent_match = re.search(r"agent_id:\s*([a-zA-Z0-9_\-]+)", content)
+
+            if not task_match:
+                errors.append(f"Lock file '{lock_file.name}' is missing required 'task_id:' declaration.")
+                continue
+
+            task_id = task_match.group(1)
+            agent_id = agent_match.group(1) if agent_match else "unknown"
+
+            if task_id in seen_tasks:
+                errors.append(f"Collision detected: Task '{task_id}' is locked by multiple agents ('{seen_tasks[task_id]}' and '{agent_id}').")
+            else:
+                seen_tasks[task_id] = agent_id
+        except Exception as ex:
+            warnings.append(f"Could not read lock file '{lock_file.name}': {ex}")
+
+
 def check_bitacora(root: Path, tier: str, warnings: list):
     """Check BITACORA.md has the proper structure and at least one entry."""
     if tier == "micro":
@@ -200,6 +230,7 @@ def main():
 
     check_required_files(root, tier, errors, warnings)
     check_plan_file(root, errors, warnings)
+    check_locks(root, errors, warnings)
     check_bitacora(root, tier, warnings)
 
     # Print results

@@ -73,3 +73,61 @@ If you are working in a **Tier 1 (Micro)** project, do not enforce or create unn
    Allowed states are strictly: `planned`, `ready`, `in_progress`, `in_review`, `blocked`, `done`.
 5. **No Blind Assumptions**: If specifications in `REQUIREMENTS.md` or `ARCHITECTURE.md` are ambiguous, log an inquiry entry in `BITACORA.md` or raise a blocker in `BLOCKERS.md` before making breaking structural assumptions.
 6. **Model Selection**: Consult [MODEL_POLICY.md](MODEL_POLICY.md) to ensure appropriate AI model tiers are matched to project complexity and task risk.
+
+---
+
+## 5. Parallel Execution & Multi-Model Collision Prevention (Locking Protocol)
+
+When multiple AI models or agents (e.g. Codex, Claude, Gemini, Cursor) collaborate simultaneously on the same repository, they must not step on each other or create merge collisions.
+
+Magnetar enforces a file-based **Work Reservation & Lock Protocol** via the `locks/` directory:
+
+```
+              Agent A (e.g. Codex)                      Agent B (e.g. Claude)
+                       │                                         │
+        1. Check locks/ directory                 1. Check locks/ directory
+                       │                                         │
+        2. Create locks/task-101.lock.yml         2. Sees task-101 is locked!
+           (Locks auth subsystem)                    (Picks task-102 instead)
+                       │                                         │
+        3. Work on feature branch                 3. Creates locks/task-102.lock.yml
+                       │                             (Locks ui subsystem)
+        4. Move to in_review &                    4. Work on feature branch
+           rm locks/task-101.lock.yml                            │
+                       │                          5. Move to in_review &
+        (Auth unlocked for others)                   rm locks/task-102.lock.yml
+```
+
+### The 4 Mandatory Steps for Parallel Agent Work:
+
+1. **Pre-Flight Lock Inspection**:
+   - Before moving any task from `ready → in_progress`, inspect all active `.lock.yml` files in `locks/`.
+   - If another model has already reserved the `task_id` or has locked overlapping file paths (`files_locked`), **DO NOT TOUCH THOSE FILES OR RE-CLAIM THAT TASK**. Pick an independent `ready` task.
+
+2. **Acquiring a Work Reservation**:
+   - Create `locks/<task-id>.lock.yml` using `locks/_template.lock.yml` as reference:
+     ```yaml
+     task_id: task-101
+     agent_id: codex-backend-01
+     model: gpt-4o
+     status: in_progress
+     branch: feature/task-101-auth
+     files_locked:
+       - src/auth/*
+     started_at: "2026-11-12T10:45:00Z"
+     summary: "Implementing OAuth2 authentication endpoints"
+     ```
+   - Transition the task in `PLAN.md` from `ready → in_progress`.
+   - Log the start and reservation in `BITACORA.md`.
+
+3. **Isolated Execution**:
+   - Work exclusively in your designated feature branch (`feature/<task-id>-<desc>`).
+   - Confine modifications strictly to the `files_locked` scope. If unexpected cross-system changes are required, check `locks/` before touching other subsystems.
+
+4. **Releasing the Lock**:
+   - Once implementation and tests are complete, move the task in `PLAN.md` to `in_review` (or `blocked` if an impediment arises).
+   - Delete your reservation file: `rm locks/<task-id>.lock.yml`.
+   - Record the transition in `BITACORA.md` so other agents and humans know the subsystem is free for integration.
+
+### Stale Lock Handling:
+- If a reservation in `locks/` has seen no commits, PR/MR activity, or heartbeats for > 24 hours, an agent or human coordinator may release the stale lock, noting the intervention in `BITACORA.md`.

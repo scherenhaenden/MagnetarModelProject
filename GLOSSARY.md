@@ -16,6 +16,7 @@
 | **Milestone** | A major checkpoint grouping related tasks with defined acceptance criteria and target delivery dates. |
 | **ADR (Architectural Decision Record)** | A structured document (`DECISIONS.md`) capturing the context, options, decision, and consequences of a significant architectural choice. |
 | **Agent Router** | The navigational contract defined in `AGENTS.md` guiding AI agents on which files to read and write for any given development action. |
+| **Task Lock / Reservation** | An ephemeral YAML file in `locks/<task-id>.lock.yml` declaring that an AI model or contributor is actively working on a task and specific file scopes, preventing parallel collisions. |
 
 ---
 

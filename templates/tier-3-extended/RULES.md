@@ -63,10 +63,11 @@ A task must always be in exactly one of the following **six** canonical states:
 
 ---
 
-## 5. Work-In-Progress (WIP) Constraints
+## 5. Work-In-Progress (WIP) & Parallel Execution Constraints
 - Individual contributors and AI agents may hold at most **two** concurrent `in_progress` tasks.
 - Exceeding the limit requires approval documented in `WIP_GUIDELINES.md` and logged in `BITACORA.md`.
 - When a task is blocked, it no longer counts toward the active WIP limit, but must be replaced with a `ready` item only after documenting mitigation steps in `BLOCKERS.md`.
+- **Parallel Model Work Reservations**: When multiple models/agents collaborate in parallel, each active task MUST maintain a reservation lock file in `locks/<task-id>.lock.yml` specifying the model identity and locked file scopes. No agent may touch files or tasks reserved by another model. Lock files must be deleted upon transition to `in_review` or `done`.
 
 ---
 
