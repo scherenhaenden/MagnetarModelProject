@@ -15,12 +15,12 @@ The Magnetar canonical branching strategy balances stability with rapid iteratio
 - **hotfix/** – Emergency corrections applied directly to `master`. Post-merge, `develop` must be fast-forwarded.
 - **experiment/** – Time-boxed explorations. Cannot merge without conversion to a feature/fix branch and compliance with documentation standards.
 
-## Pull Request Expectations
+## Pull Request / Merge Request Expectations (PR / MR)
 1. Rebase onto target branch before requesting review to maintain a linear history.
 2. Update `BITACORA.md` with a summary of changes and impacted tasks.
 3. Refresh `STATUS.md` metrics if progress, testing, or risk posture changes.
 4. Confirm related blockers are updated or resolved in `BLOCKERS.md`.
-5. Reference the relevant task IDs from `PLAN.md` in the PR description.
+5. Reference the relevant task IDs from `PLAN.md` in the PR/MR description.
 
 ## Branch Lifecycle
 - Create a branch when moving a task to `in_progress`.

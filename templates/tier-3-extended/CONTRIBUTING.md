@@ -14,15 +14,15 @@ Thank you for helping maintain the Magnetar Canonical Project Model. Consistency
 2. Update relevant documentation, including `BITACORA.md`, `STATUS.md`, `PLAN.md`, and `BLOCKERS.md` if applicable.
 3. Run validation scripts or checks defined by the repository (e.g., linting, schema validation).
 4. Ensure testing expectations from `TESTING.md` are met or note exceptions.
-5. Submit a pull request referencing task IDs and summarizing changes.
+5. Submit a pull request / merge request referencing task IDs and summarizing changes.
 
 ## Documentation Updates
-- Every PR must include a `BITACORA.md` entry with timestamp, author, and impact.
+- Every PR/MR must include a `BITACORA.md` entry with timestamp, author, and impact.
 - If progress metrics change, update `STATUS.md` and adjust effort totals in `PLAN.md`.
 - For new rules or deviations, amend `RULES.md` and describe rationale in `BITACORA.md`.
 
 ## Review Process
-- At least one maintainer reviews each PR for adherence to canonical standards.
+- At least one maintainer reviews each PR/MR for adherence to canonical standards.
 - Reviewers verify that cross-file consistency is maintained.
 - Changes may be rejected if supporting documentation or YAML updates are missing.
 

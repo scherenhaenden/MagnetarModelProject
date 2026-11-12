@@ -1,0 +1,12 @@
+# Sample GitLab CI Configuration for Magnetar Canon Compliance
+stages:
+  - validate
+
+magnetar-compliance:
+  stage: validate
+  image: python:3.11-slim
+  script:
+    - python scripts/magnetar_check.py --strict
+  rules:
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+    - if: $CI_COMMIT_BRANCH =~ /^(master|main|develop|feature\/.*|fix\/.*)$/

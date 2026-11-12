@@ -21,3 +21,4 @@
 | :--- | :--- | :--- | :--- |
 | 2026-11-12 | 10:30 | Core Maintainers | Initialized Magnetar Canonical Model repository with tiered project architecture and agent router. |
 | 2026-11-12 | 10:35 | Antigravity AI | Implemented Tiered Canon (Micro/Standard/Extended), AGENTS.md router, MODEL_POLICY.md, DECISIONS.md, GLOSSARY.md, templates/, and scripts/magnetar_check.py validator. |
+| 2026-11-12 | 10:42 | Antigravity AI | Decoupled model from GitHub-specific assumptions; added multi-platform CI samples (ci/), PR/MR terminology, and environment-agnostic repository URLs. |

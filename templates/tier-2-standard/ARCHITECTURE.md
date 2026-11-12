@@ -41,7 +41,7 @@ The Magnetar Canonical Project Model defines architecture as the structure of go
                                       v
 +-----------------------------------------------------------------------------+
 | AUTOMATED VERIFICATION                                                      |
-| (scripts/magnetar_check.py, .github/workflows/magnetar-lint.yml)            |
+| (scripts/magnetar_check.py, CI/CD pipelines / git hooks)                    |
 +-----------------------------------------------------------------------------+
 ```
 

@@ -18,11 +18,11 @@
 ### 3. Agent Routing & Context Optimization
 - Provide a dedicated AI Agent context router (`AGENTS.md`) mapping developer activities (planning, coding, blockers, testing, review) to specific read/write markdown documents.
 - Provide a model tiering framework (`MODEL_POLICY.md`) matching AI parameter tiers (Fast, Balanced, Deep Reasoning) to project scale and task complexity.
-- Provide single-line tool bridge files (`CLAUDE.md`, `GEMINI.md`, `.github/copilot-instructions.md`) pointing to `AGENTS.md`.
+- Provide optional, platform-agnostic tool bridge files (e.g. `CLAUDE.md`, `GEMINI.md`) pointing to `AGENTS.md`.
 
 ### 4. Automated Compliance Tooling
 - Provide a zero-dependency CLI script (`scripts/magnetar_check.py`) capable of auditing any repository for canon compliance according to its declared tier.
-- Provide a GitHub Actions workflow (`.github/workflows/magnetar-lint.yml`) to enforce canon compliance on pull requests.
+- Provide sample CI/CD workflows and git hook configurations (`ci/`) to enforce canon compliance across any environment (GitHub Actions, GitLab CI, pre-commit, etc.).
 
 ### 5. Reference Implementations & Ready-to-Use Templates
 - Deliver ready-to-copy template folders for each project tier under `templates/`.

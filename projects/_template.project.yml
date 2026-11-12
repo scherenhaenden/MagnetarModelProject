@@ -20,7 +20,7 @@ metadata:
     escalation_contact: lead@example.com # Contact or email for blocker escalation
     meeting_cadence: weekly              # Sync cadence
   repository:
-    url: https://github.com/org/repo     # Source control URL
+    url: https://git.example.com/org/repo # Source control URL (GitLab, GitHub, Bitbucket, self-hosted)
     default_branch: master               # Release branch (master or main)
 
 milestones:                              # Ordered list of project checkpoints

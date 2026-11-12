@@ -34,7 +34,7 @@ Magnetar projects declare their tier in `projects/*.project.yml` via the `tier:`
 - `develop` (optional) aggregates completed features before stabilization.
 - Feature branches originate from `master` or `develop` per project choice and must be rebased before merging.
 - Hotfix branches start from `master` and must trigger a `STATUS.md` update upon completion.
-- Each Pull Request must reference the tasks it affects and include `BITACORA.md` entries summarizing the change.
+- Each Pull Request / Merge Request (PR/MR) must reference the tasks it affects and include `BITACORA.md` entries summarizing the change.
 
 ---
 
@@ -100,4 +100,4 @@ A task must always be in exactly one of the following **six** canonical states:
   ```bash
   python scripts/magnetar_check.py
   ```
-- Automated CI workflows (`.github/workflows/magnetar-lint.yml`) validate the presence of required files, valid task states, and WIP constraints on pull requests.
+- Automated CI/CD pipelines or local git pre-commit hooks (see samples in `ci/`) validate the presence of required files, valid task states, and WIP constraints on pull and merge requests.

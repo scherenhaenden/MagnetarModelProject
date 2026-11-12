@@ -33,9 +33,9 @@
 
 | Identifier Pattern | Format | Example | Context |
 | :--- | :--- | :--- | :--- |
-| **Repository Name** | `magnetar-<domain>-<descriptor>` | `magnetar-core-auth` | GitHub/Git repositories |
+| **Repository Name** | `magnetar-<domain>-<descriptor>` | `magnetar-core-auth` | Git repositories (GitLab, GitHub, Bitbucket, Gitea, etc.) |
 | **Branch Name** | `<type>/<kebab-description>` | `feature/user-session-cache` | Git branches (`feature`, `fix`, `chore`, `experiment`, `hotfix`) |
-| **Task ID** | `task-<number>` or `task-<slug>` | `task-102` | `PLAN.md`, PR descriptions, commit messages |
+| **Task ID** | `task-<number>` or `task-<slug>` | `task-102` | `PLAN.md`, PR/MR descriptions, commit messages |
 | **Blocker ID** | `blocker-<number>` or `blocker-<slug>` | `blocker-001` | `BLOCKERS.md`, `STATUS.md` |
 | **Milestone ID** | `ms-<number>` | `ms-01` | `PLAN.md`, `project.yml` |
 | **ADR ID** | `ADR-<number>` | `ADR-001` | `DECISIONS.md` |

@@ -49,7 +49,7 @@ Each file in the Magnetar model serves a distinct, non-overlapping role:
 | **`DECISIONS.md`** | Architecture Decision Records (ADRs) | Tier 3 |
 | **`GLOSSARY.md`** | Domain terms, taxonomy, and identifier conventions | Tier 3 |
 
-Tool bridges (`CLAUDE.md`, `GEMINI.md`, `.github/copilot-instructions.md`) point directly to `AGENTS.md` to prevent duplication.
+Tool bridges (e.g. `CLAUDE.md`, `GEMINI.md`) point directly to `AGENTS.md` to maintain a single source of truth across diverse agent environments.
 
 ---
 
